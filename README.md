@@ -9,20 +9,53 @@ HyperMail is a messaging application designed to combine essential features for 
 
 ## Environment Setup
 
-### Backend `.env` Configuration
-Create a `.env` file in the `back` directory with the following content:
+### back `.env` Configuration
+1. **Rename `.env.example` to `.env` or Create a New `.env` File:**
+   - If your project includes an `.env.example` file, rename it to `.env`.
+   - Alternatively, create a new `.env` file in the root directory of both the `back components of your project.
 ```
 APP_PORT=3001
 SECRET_KEY=qwe1234
-MONGO_URL=mongodb://admin:rtfgcv@localhost:27017/hypermail?authSource=admin
+MONGO_URL=mongodb://localhost:27017/hypermail?authSource=admin
 ```
+   - The `SECRET_KEY` is a value used to sign and verify JSON Web Tokens (JWTs) for authentication purposes. Enter a random, secure value for this variable. For example:
+     ```
+     SECRET_KEY=yourRandomSecureValueHere
+     ```
+   - Ensure you save the `.env` file after making these changes.
 
-### Frontend `.env` Configuration
-Create a `.env` file in the `front` directory with the following content:
+### front `.env` Configuration
+1. **Rename `.env.example` to `.env` or Create a New `.env` File:**
+   - If your project includes an `.env.example` file, rename it to `.env`.
+   - Alternatively, create a new `.env` file in the root directory of `front` components of your project.
 ```
 REACT_APP_API=http://localhost:3001/api/v1/
 REACT_APP_BASE_URL=http://localhost:3001
 ```
+
+### MongoDB Atlas Setup
+
+To configure your MongoDB database, it's recommended to use MongoDB Atlas, a fully-managed cloud database service. Follow the steps in the video tutorial to set up your MongoDB Atlas cluster:
+
+- [MongoDB Atlas Setup Tutorial](https://www.youtube.com/watch?v=jXgJyuBeb_o)
+
+### Configuring the `.env` File
+
+After setting up your MongoDB Atlas cluster, you will receive a MongoDB URI. This URI is essential for connecting your application to the MongoDB database. Follow these steps to configure your `.env` file:
+
+1. **Update the `.env` File:**
+   - Open the `.env` file in your preferred text editor.
+   - Locate the `MONGO_URL` variable and replace its value with your MongoDB URI from MongoDB Atlas. For example:
+     ```
+     MONGO_URL=mongodb+srv://yourusername:yourpassword@yourcluster.mongodb.net/mydatabase?retryWrites=true&w=majority
+     ```
+   - Ensure you save the `.env` file after making these changes.
+
+### Finalizing the Configuration
+
+After updating the `.env` file with your MongoDB URI and SECRET_KEY, your application is ready to connect to your MongoDB database securely. The SECRET_KEY should be kept confidential and used consistently across your application for authentication purposes.
+
+--- 
 
 ## Local Development Setup
 
