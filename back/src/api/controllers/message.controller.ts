@@ -133,7 +133,6 @@ export class MessageController {
                 return res.status(400).json({ error: "Update data is required in the request body" });
             }
 
-            // Set isRead to true regardless of what's in the request body
             updateData.isRead = true;
 
             const updatedMessage = await MessageService.setMessageReadById(messageId, updateData);

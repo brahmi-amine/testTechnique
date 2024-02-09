@@ -1,4 +1,3 @@
-// userController.test.js
 const supertest = require('supertest');
 import { sanitizeUser } from '../utils/sanitizeUser';
 import app from '../app';

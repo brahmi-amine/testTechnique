@@ -38,12 +38,11 @@ export class MessageService {
      */
     public static async getMyMessages(email: string): Promise<IMessage[]> {
         try {
-            // Find a message by ID and the 'to' field matching the provided email
             const message = await MessageModel.find({ to: email }).sort({ createdAt: -1 }).exec();
             return message;
         } catch (error) {
             console.error('Error fetching message by ID and email:', error);
-            throw error; // Rethrow the error to be handled by the caller
+            throw error;
         }
     }
 
